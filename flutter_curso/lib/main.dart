@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  reponder() {
+  var perguntaSelecionada = 0;
+
+  void reponder() {
     print('Respondido');
   }
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('A pergunta!'),
+            Text(perguntas[perguntaSelecionada]),
             Row(
               children: [
                 Padding(
