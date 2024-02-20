@@ -7,6 +7,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  reponder() {
+    print('Respondido');
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> perguntas = [
@@ -28,17 +32,17 @@ class MyApp extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: ElevatedButton(
+                    onPressed: reponder,
                     child: const Text('Resposta 1'),
-                    onPressed: () => print('Resposta 1'),
                   ),
                 ),
                 ElevatedButton(
+                  onPressed: reponder,
                   child: const Text('Resposta 2'),
-                  onPressed: () => print('Resposta 2'),
                 ),
                 ElevatedButton(
+                  onPressed: reponder,
                   child: const Text('Resposta 3'),
-                  onPressed: () => print('Resposta 3'),
                 ),
               ],
             ),
