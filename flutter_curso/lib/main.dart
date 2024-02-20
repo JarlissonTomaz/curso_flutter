@@ -17,6 +17,9 @@ class PerguntaAppState extends State<PerguntaApp> {
   var perguntaSelecionada = 0;
   void reponder() {
     print('Respondido');
+    setState(() {
+      perguntaSelecionada++;
+    });
   }
 
   @override
