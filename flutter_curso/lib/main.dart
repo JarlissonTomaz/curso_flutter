@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
   void _reponder() {
-    print('Respondido');
     setState(() {
       _perguntaSelecionada++;
     });
@@ -43,19 +42,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
-                  child: ElevatedButton(
-                    onPressed: _reponder,
-                    child: const Resposta('Resposta 1'),
-                  ),
+                  child: Resposta('Repsota 1', _reponder),
                 ),
-                ElevatedButton(
-                  onPressed: _reponder,
-                  child: const Resposta('Resposta 2'),
-                ),
-                ElevatedButton(
-                  onPressed: _reponder,
-                  child: const Resposta('Resposta 3'),
-                ),
+                Resposta('Resposta 2', _reponder),
+                Resposta('Resposta 3', _reponder)
               ],
             ),
           ],
