@@ -40,10 +40,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
             Questao(perguntas[_perguntaSelecionada]),
             Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Resposta('Repsota 1', _reponder),
-                ),
+                Resposta('Repsota 1', _reponder),
                 Resposta('Resposta 2', _reponder),
                 Resposta('Resposta 3', _reponder)
               ],
