@@ -16,6 +16,21 @@ class MyApp extends StatelessWidget {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
+  final List<Map<String, Object>> _perguntas = const [
+    {
+      'texto': 'Qual é a sua cor favorita?',
+      'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco']
+    },
+    {
+      'texto': 'Qual é o seu animal favorito?',
+      'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão']
+    },
+    {
+      'texto': 'Qual é o seu instrutor favorito?',
+      'respostas': ['Maria', 'João', 'Leo', 'Pedro']
+    }
+  ];
+
   var _perguntaSelecionada = 0;
   void _reponder() {
     setState(() {
@@ -23,47 +38,38 @@ class _PerguntaAppState extends State<PerguntaApp> {
     });
   }
 
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, Object>> perguntas = [
-      {
-        'texto': 'Qual é a sua cor favorita?',
-        'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco']
-      },
-      {
-        'texto': 'Qual é o seu animal favorito?',
-        'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão']
-      },
-      {
-        'texto': 'Qual é o seu instrutor favorito?',
-        'respostas': ['Maria', 'João', 'Leo', 'Pedro']
-      }
-    ];
-    var respostas =
-        perguntas[_perguntaSelecionada]['respostas'] as List<String>;
+    var respostas = temPerguntaSelecionada
+        ? _perguntas[_perguntaSelecionada]['respostas'] as List<String>
+        : [];
 
-    // for (var pergunta
-    //     in perguntas[_perguntaSelecionada]['respostas'] as List<String>) {
-    //   respostasSelecionadas.add(Resposta(pergunta, _reponder));
-    // }
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Perguntas'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Questao(perguntas[_perguntaSelecionada]['texto'] as String),
-            Row(
-              children: [
-                ...respostas.map((e) => Resposta(e, _reponder)),
-              ],
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text('Perguntas'),
         ),
-      ),
-    );
+        body: temPerguntaSelecionada
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Questao(
+                        _perguntas[_perguntaSelecionada]['texto'] as String),
+                    Row(
+                      children: [
+                        ...respostas.map((e) => Resposta(e, _reponder)),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            : const Center(
+                child: Text('Parabéns!'),
+              ));
   }
 }
 
