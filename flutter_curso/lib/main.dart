@@ -39,12 +39,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
         'respostas': ['Maria', 'João', 'Leo', 'Pedro']
       }
     ];
-    var respostasSelecionadas = [];
+    var respostas =
+        perguntas[_perguntaSelecionada]['respostas'] as List<String>;
 
-    for (var pergunta
-        in perguntas[_perguntaSelecionada]['respostas'] as List<String>) {
-      respostasSelecionadas.add(Resposta(pergunta, _reponder));
-    }
+    // for (var pergunta
+    //     in perguntas[_perguntaSelecionada]['respostas'] as List<String>) {
+    //   respostasSelecionadas.add(Resposta(pergunta, _reponder));
+    // }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Perguntas'),
@@ -55,7 +56,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
           children: [
             Questao(perguntas[_perguntaSelecionada]['texto'] as String),
             Row(
-              children: [...respostasSelecionadas],
+              children: [
+                ...respostas.map((e) => Resposta(e, _reponder)),
+              ],
             ),
           ],
         ),
