@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_curso/reposta.dart';
 import 'questao.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meu Primeiro App'),
+        title: const Text('Perguntas'),
       ),
       body: Center(
         child: Column(
@@ -44,16 +45,16 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   padding: const EdgeInsets.only(left: 25.0),
                   child: ElevatedButton(
                     onPressed: _reponder,
-                    child: const Text('Resposta 1'),
+                    child: const Resposta('Resposta 1'),
                   ),
                 ),
                 ElevatedButton(
                   onPressed: _reponder,
-                  child: const Text('Resposta 2'),
+                  child: const Resposta('Resposta 2'),
                 ),
                 ElevatedButton(
                   onPressed: _reponder,
-                  child: const Text('Resposta 3'),
+                  child: const Resposta('Resposta 3'),
                 ),
               ],
             ),
