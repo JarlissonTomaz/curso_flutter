@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_curso/reposta.dart';
 import 'questao.dart';
+import 'resultado.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,27 +50,25 @@ class _PerguntaAppState extends State<PerguntaApp> {
         : [];
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Perguntas'),
-        ),
-        body: temPerguntaSelecionada
-            ? Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Questao(
-                        _perguntas[_perguntaSelecionada]['texto'] as String),
-                    Row(
-                      children: [
-                        ...respostas.map((e) => Resposta(e, _reponder)),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            : const Center(
-                child: Text('Parabéns!'),
-              ));
+      appBar: AppBar(
+        title: const Text('Perguntas'),
+      ),
+      body: temPerguntaSelecionada
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Questao(_perguntas[_perguntaSelecionada]['texto'] as String),
+                  Row(
+                    children: [
+                      ...respostas.map((t) => Resposta(t, _reponder)),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          : const Resultado(),
+    );
   }
 }
 
