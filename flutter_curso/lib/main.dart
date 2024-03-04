@@ -20,37 +20,45 @@ class _PerguntaAppState extends State<PerguntaApp> {
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Preto', 'notas': 10},
-        {'texto': 'Vermelho', 'notas': 8},
-        {'texto': 'Verde', 'notas': 5},
-        {'texto': 'Branco', 'notas': 1}
+        {'texto': 'Preto', 'pontuacao': 10},
+        {'texto': 'Vermelho', 'pontuacao': 8},
+        {'texto': 'Verde', 'pontuacao': 5},
+        {'texto': 'Branco', 'pontuacao': 1}
       ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
       'respostas': [
-        {'texto': 'Elefante', 'nota': 10},
-        {'texto': 'Coelho', 'nota': 8},
-        {'texto': 'Cobra', 'nota': 5},
-        {'texto': 'Leão  ', 'nota': 1}
+        {'texto': 'Elefante', 'pontuacao': 10},
+        {'texto': 'Coelho', 'pontuacao': 8},
+        {'texto': 'Cobra', 'pontuacao': 5},
+        {'texto': 'Leão  ', 'pontuacao': 1}
       ]
     },
     {
       'texto': 'Qual é o seu instrutor favorito?',
       'respostas': [
-        {'texto': 'Maria', 'nota': 10},
-        {'texto': 'João', 'nota': 8},
-        {'texto': 'Leo', 'nota': 5},
-        {'texto': 'Pedro', 'nota': 1},
+        {'texto': 'Maria', 'pontuacao': 10},
+        {'texto': 'João', 'pontuacao': 8},
+        {'texto': 'Leo', 'pontuacao': 5},
+        {'texto': 'Pedro', 'pontuacao': 1},
       ]
     }
   ];
-
+  var _valorTotal = 0;
   var _perguntaSelecionada = 0;
-  void _reponder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
+
+  void _reponder(int pontuacao) {
+    if (temPerguntaSelecionada) {
+      setState(
+        () {
+          _perguntaSelecionada++;
+          _valorTotal += pontuacao;
+        },
+      );
+      print(_valorTotal);
+    }
+    print(_valorTotal);
   }
 
   bool get temPerguntaSelecionada {
