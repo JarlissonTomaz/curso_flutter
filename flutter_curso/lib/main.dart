@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_curso/questionario.dart';
-import 'package:flutter_curso/reposta.dart';
-import 'questao.dart';
 import 'resultado.dart';
 
 void main() {
@@ -21,15 +19,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
   final List<Map<String, Object>> _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco']
+      'respostas': [
+        {'texto': 'Preto', 'notas': 10},
+        {'texto': 'Vermelho', 'notas': 8},
+        {'texto': 'Verde', 'notas': 5},
+        {'texto': 'Branco', 'notas': 1}
+      ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão']
+      'respostas': [
+        {'texto': 'Elefante', 'nota': 10},
+        {'texto': 'Coelho', 'nota': 8},
+        {'texto': 'Cobra', 'nota': 5},
+        {'texto': 'Leão  ', 'nota': 1}
+      ]
     },
     {
       'texto': 'Qual é o seu instrutor favorito?',
-      'respostas': ['Maria', 'João', 'Leo', 'Pedro']
+      'respostas': [
+        {'texto': 'Maria', 'nota': 10},
+        {'texto': 'João', 'nota': 8},
+        {'texto': 'Leo', 'nota': 5},
+        {'texto': 'Pedro', 'nota': 1},
+      ]
     }
   ];
 
