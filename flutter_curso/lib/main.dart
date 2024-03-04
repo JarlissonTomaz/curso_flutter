@@ -56,9 +56,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
           _valorTotal += pontuacao;
         },
       );
-      print(_valorTotal);
     }
-    print(_valorTotal);
   }
 
   bool get temPerguntaSelecionada {
@@ -77,7 +75,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
               perguntas: _perguntas,
               responder: _reponder,
             )
-          : const Resultado(),
+          : Resultado(_valorTotal),
     );
   }
 }
