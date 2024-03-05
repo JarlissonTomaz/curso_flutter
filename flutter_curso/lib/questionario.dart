@@ -32,16 +32,12 @@ class Questionario extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Questao(perguntas[perguntaSelecionada]['texto'] as String),
-          Row(
-            children: [
-              ...respostas.map((resp) {
-                return Resposta(
-                  resp['texto'].toString(),
-                  () => responder((resp['pontuacao'] as int)),
-                );
-              }),
-            ],
-          ),
+          ...respostas.map((resp) {
+            return Resposta(
+              resp['texto'].toString(),
+              () => responder((resp['pontuacao'] as int)),
+            );
+          }),
         ],
       ),
     );
