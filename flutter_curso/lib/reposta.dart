@@ -10,7 +10,7 @@ class Resposta extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
       child: ElevatedButton(
         onPressed: onSelecao,
         child: Text(texto),
